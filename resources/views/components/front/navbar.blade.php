@@ -25,21 +25,21 @@
             <ul
                 class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-[#318448] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:[#318448] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-white bg-[#F7CE46] rounded md:bg-transparent md:text-[#F7CE46] md:p-0 md:dark:text-blue-500"
+                    <a href="{{ route('front.index') }}"
+                        class="{{ request()->routeIs('front.index') ? 'bg-[#F7CE46] md:text-[#F7CE46]' : 'text-white hover:bg-[#F7CE46]' }} block py-2 px-3 rounded md:bg-transparent md:hover:bg-transparent md:p-0 "
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#F7CE46] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    <a href="{{ route('front.about') }}"
+                        class="{{ request()->routeIs('front.about') ? 'bg-[#F7CE46] md:text-[#F7CE46]' : 'text-white hover:bg-[#F7CE46]' }} block py-2 px-3 rounded  md:bg-transparent md:hover:bg-transparent md:p-0">About</a>
                 </li>
                 <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#F7CE46] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    <a href="{{ route('front.contact') }}"
+                        class="{{ request()->routeIs('front.contact') ? 'bg-[#F7CE46] md:text-[#F7CE46]' : 'text-white hover:bg-[#F7CE46]' }} block py-2 px-3 rounded  md:bg-transparent md:hover:bg-transparent md:p-0">Contact</a>
                 </li>
                 <li>
-                    <a href="#"
-                        class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#F7CE46] md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Paket
+                    <a href="{{ route('front.packet') }}"
+                        class="{{ request()->routeIs('front.packet') ? 'bg-[#F7CE46] md:text-[#F7CE46]' : 'text-white hover:bg-[#F7CE46]' }} block py-2 px-3 rounded  md:bg-transparent md:hover:bg-transparent md:p-0">Paket
                         Umroh</a>
                 </li>
             </ul>
