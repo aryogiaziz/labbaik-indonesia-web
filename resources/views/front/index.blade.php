@@ -8,21 +8,23 @@
 <x-front.layout>
     <x-front.jumbotron />
 
+    {{-- halaman brosur --}}
+
     <section class="max-w-screen-xl mx-auto mt-16 relative">
         <div id="brochure-owl" class="owl-carousel owl-theme">
 
             <div class="item  h-full">
-                <img src="https://i.pinimg.com/736x/1a/71/80/1a7180f2c41a4681973ce90690258daf.jpg"
+                <img src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                     class="img-responsive object-cover w-[400px] h-[500px]">
             </div>
 
             <div class="item">
-                <img src="https://static.zerochan.net/Nishikigi.Chisato.full.3699876.jpg"
+                <img src="https://images.pexels.com/photos/18274181/pexels-photo-18274181/free-photo-of-crowd-around-kaaba-in-mecca-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     class="img-responsive object-cover w-[400px] h-[500px]">
             </div>
 
             <div class="item">
-                <img src="https://pbs.twimg.com/media/Fw3uLUPaUAA7kZZ?format=jpg&name=4096x4096"
+                <img src="https://images.pexels.com/photos/20184065/pexels-photo-20184065/free-photo-of-great-mosque-in-mecca.jpeg?auto=compress&cs=tinysrgb&w=600"
                     class="img-responsive object-cover w-[400px] h-[500px]">
             </div>
 
@@ -33,6 +35,8 @@
 
         </div>
     </section>
+
+    {{-- dashboard index --}}
 
     <section class="max-w-screen-xl mx-auto mt-16 flex flex-col gap-6 px-3">
         <div class="flex flex-col xl:flex-row justify-center gap-6">
@@ -83,6 +87,8 @@
 
     </section>
 
+    {{-- parallax --}}
+
     <section class="h-[400px] mt-16">
         <div class="h-full bg-cover bg-fixed flex justify-center items-center"
             style="background-image:url('https://images.unsplash.com/photo-1549575483-14686a641c28?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
@@ -90,6 +96,8 @@
             </h1>
         </div>
     </section>
+
+    {{-- mengapa memilih kami --}}
 
     <section class="py-14 bg-[#F9F9F9]">
         <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
@@ -127,6 +135,8 @@
         </div>
     </section>
 
+    {{-- Galeri Foto --}}
+
     <section class="py-14">
         <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
             <div class="flex flex-col gap-2">
@@ -138,17 +148,17 @@
 
             <div id="gallery-owl" class="owl-carousel owl-theme h-full">
                 <div class="item  h-full">
-                    <img src="https://i.pinimg.com/736x/1a/71/80/1a7180f2c41a4681973ce90690258daf.jpg"
+                    <img src="https://images.pexels.com/photos/18274181/pexels-photo-18274181/free-photo-of-crowd-around-kaaba-in-mecca-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         class="img-responsive object-cover w-[400px] h-[500px]">
                 </div>
 
                 <div class="item">
-                    <img src="https://static.zerochan.net/Nishikigi.Chisato.full.3699876.jpg"
+                    <img src="https://images.pexels.com/photos/20184065/pexels-photo-20184065/free-photo-of-great-mosque-in-mecca.jpeg?auto=compress&cs=tinysrgb&w=600"
                         class="img-responsive object-cover w-[400px] h-[500px]">
                 </div>
 
                 <div class="item">
-                    <img src="https://pbs.twimg.com/media/Fw3uLUPaUAA7kZZ?format=jpg&name=4096x4096"
+                    <img src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                         class="img-responsive object-cover w-[400px] h-[500px]">
                 </div>
 
@@ -159,6 +169,8 @@
             </div>
         </div>
     </section>
+
+    {{-- mengapa memilih kami --}}
 
     <section class="py-14 bg-[#F9F9F9]">
         <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
@@ -177,7 +189,7 @@
                         <div class="py-6 px-6">
                             <div class="flex items-center mb-4">
                                 <img class="w-10 h-10 me-4 rounded-full"
-                                    src="https://i.pinimg.com/736x/1a/71/80/1a7180f2c41a4681973ce90690258daf.jpg"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSasIydkiFM8Nmx5KTx2iAshCaV_YINqfc5TBrUhN9KA&s"
                                     alt="">
                                 <div class="font-medium dark:text-white">
                                     <p>
@@ -229,6 +241,8 @@
         </div>
     </section>
 
+    {{-- Artikel --}}
+
     <section class="py-14">
         <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
             <div class="flex flex-col gap-2">
@@ -244,7 +258,7 @@
                         class=" bg-white border border-gray-200 rounded-lg shadow w-full transition ease-in-out duration-300">
                         <a href="#">
                             <img class="rounded-t-lg object-cover w-full h-[220px]"
-                                src="https://pbs.twimg.com/media/Fw3uLUPaUAA7kZZ?format=jpg&name=4096x4096"
+                                src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                                 alt="" />
                         </a>
                         <div class="py-6 px-6">
