@@ -147,7 +147,7 @@
                             </li>
                         </ul>
 
-                        <a href="https://wa.me/+6289623847260?text=paket {{ $paket->name }}" target="_blank"
+                        <a href="https://wa.me/+6289623847260?text={{ $paket->name }}" target="_blank"
                             class="text-white bg-[#318448] hover:bg-[#428431] focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
                             Choose plan
                         </a>
