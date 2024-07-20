@@ -10,10 +10,9 @@
     <section class="py-14 bg-[#F9F9F9] mt-16">
         <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
             <div class="flex flex-col gap-2">
-                <h1 class="text-5xl font-bold">Paket Data</h1>
+                <h1 class="text-5xl font-bold">Paket Umroh</h1>
                 <p class="text-xl font-semibold max-w-xl">
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout.
+                    Labbaik Indonesia
                 </p>
             </div>
         </div>
@@ -21,9 +20,9 @@
 
     <section class="py-14">
         <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row px-3 gap-6">
-            <div class="md:max-w-xs bg-white border border-gray-200 rounded-lg shadow md:sticky top-40 h-fit">
+            {{-- <div class="md:max-w-xs bg-white border border-gray-200 rounded-lg shadow md:sticky top-40 h-fit">
                 <div class="p-5 flex flex-col gap-3">
-                    <div>
+                    <!-- <div>
                         <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900">Harga</label>
                         <div class="flex gap-3">
                             <input type="text" id="small-input" placeholder="Min"
@@ -31,9 +30,9 @@
                             <input type="text" id="small-input" placeholder="Min"
                                 class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-[#318448]focus:border-[#318448]">
                         </div>
-                    </div>
+                    </div> -->
 
-                    @foreach (['Filter 1', 'Filter 2'] as $filter)
+                    <!-- @foreach (['Filter 1', 'Filter 2'] as $filter)
                         <div>
                             <label for="small-input" class="block mb-2 text-sm font-medium text-gray-900">
                                 {{ $filter }}
@@ -41,24 +40,26 @@
                             @for ($j = 0; $j < 4; $j++)
                                 <div class="flex items-center mb-4">
                                     <input id="default-checkbox" type="checkbox" value=""
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="default-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                                    <label for="default-checkbox" class="ms-2 text-sm text-gray-900">
                                         Default checkbox
                                     </label>
                                 </div>
                             @endfor
                         </div>
-                    @endforeach
+                    @endforeach -->
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="grid md:grid-cols-2 gap-6">
-                @for ($i = 0; $i < 4; $i++)
+            <div class="grid md:grid-cols-3 gap-6">
+                @foreach ($pakets as $paket)
                     <div class="w-full max-w-sm p-4 bg-[#E7C45E] border border-gray-200 rounded-lg shadow sm:p-8 ">
-                        <h5 class="mb-4 text-xl font-medium text-white ">Paket Travel Umroh {{ $i + 1 }}</h5>
+                        <h5 class="mb-4 text-xl font-medium text-white ">
+                            {{ $paket->name }}
+                        </h5>
                         <div class="mb-3 flex items-baseline text-white">
                             <span class="text-3xl font-semibold">Rp.</span>
-                            <span class="text-4xl font-bold tracking-tight">3x.xxx.xxx,-</span>
+                            <span class="text-4xl font-bold tracking-tight">{{ number_format($paket->harga) }},-</span>
                         </div>
                         <p class="text-gray-500">
                             All the basic features to boost your freelance career
@@ -76,7 +77,7 @@
                                     </span>
                                 </div>
                                 <span class="place-self-end text-nowrap text-base font-normal">
-                                    06 Sep 2024
+                                    {{ \Carbon\Carbon::parse($paket->jadwal_keberangkatan)->format('d M Y') }}
                                 </span>
                             </li>
 
@@ -92,7 +93,7 @@
                                     </span>
                                 </div>
                                 <span class="place-self-end text-nowrap text-base font-normal">
-                                    12 hari
+                                    {{ $paket->durasi }}
                                 </span>
                             </li>
 
@@ -108,7 +109,7 @@
                                     </span>
                                 </div>
                                 <span class="place-self-end text-nowrap text-base font-normal">
-                                    Hotel Hegarmanah
+                                    {{ $paket->hotel }}
                                 </span>
                             </li>
 
@@ -124,7 +125,7 @@
                                     </span>
                                 </div>
                                 <span class="place-self-end text-nowrap text-base font-normal">
-                                    25 Pax
+                                    {{ $paket->ketersediaan }}
                                 </span>
                             </li>
 
@@ -141,17 +142,17 @@
                                     </span>
                                 </div>
                                 <span class="place-self-end text-nowrap text-base font-normal">
-                                    Jakarta
+                                    {{ $paket->berangkat_dari }}
                                 </span>
                             </li>
                         </ul>
 
-                        <button type="button"
+                        <a href="https://wa.me/+6289623847260?text=paket {{ $paket->name }}" target="_blank"
                             class="text-white bg-[#318448] hover:bg-[#428431] focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">
                             Choose plan
-                        </button>
+                        </a>
                     </div>
-                @endfor
+                @endforeach
 
             </div>
         </div>

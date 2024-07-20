@@ -13,25 +13,12 @@
     <section class="max-w-screen-xl mx-auto mt-16 relative">
         <div id="brochure-owl" class="owl-carousel owl-theme">
 
-            <div class="item  h-full">
-                <img src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    class="img-responsive object-cover w-[400px] h-[500px]">
-            </div>
-
-            <div class="item">
-                <img src="https://images.pexels.com/photos/18274181/pexels-photo-18274181/free-photo-of-crowd-around-kaaba-in-mecca-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    class="img-responsive object-cover w-[400px] h-[500px]">
-            </div>
-
-            <div class="item">
-                <img src="https://images.pexels.com/photos/20184065/pexels-photo-20184065/free-photo-of-great-mosque-in-mecca.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    class="img-responsive object-cover w-[400px] h-[500px]">
-            </div>
-
-            <div class="item">
-                <img src="https://storage.googleapis.com/muslimpergi/uploads/slide/pict/415/1.AWAL_SEPTEMBER_EKSEKUTIF.png"
-                    class="img-responsive object-cover w-[400px] h-[500px]">
-            </div>
+            @foreach ($brosurs as $brosur)
+                <div class="item h-full">
+                    <img src="{{ asset('storage/' . $brosur->image_brochure) }}"
+                        class="img-responsive object-cover w-[400px] h-[600px]">
+                </div>
+            @endforeach
 
         </div>
     </section>
@@ -43,7 +30,7 @@
             <div class=" bg-white border border-gray-200 rounded-lg shadow flex flex-col w-full">
                 <div class="border-b-2 py-6 px-10">
                     <h5 class="text-xl">Total Customer</h5>
-                    <h3 class="text-2xl font-bold">10.000</h3>
+                    <h3 class="text-2xl font-bold">{{ number_format($pie_semua['total']) }}</h3>
                     <h5 class="text-xl">Jamaah</h5>
                 </div>
                 <div>
@@ -54,7 +41,7 @@
             <div class=" bg-white border border-gray-200 rounded-lg shadow flex flex-col w-full">
                 <div class="border-b-2 py-6 px-10">
                     <h5 class="text-xl">Total Customer Laki-Laki</h5>
-                    <h3 class="text-2xl font-bold">10.000</h3>
+                    <h3 class="text-2xl font-bold">{{ number_format($pie_laki['total']) }}</h3>
                     <h5 class="text-xl">Jamaah</h5>
                 </div>
                 <div>
@@ -65,7 +52,7 @@
             <div class=" bg-white border border-gray-200 rounded-lg shadow flex flex-col w-full">
                 <div class="border-b-2 py-6 px-10">
                     <h5 class="text-xl">Total Customer Perempuan</h5>
-                    <h3 class="text-2xl font-bold">10.000</h3>
+                    <h3 class="text-2xl font-bold">{{ number_format($pie_perempuan['total']) }}</h3>
                     <h5 class="text-xl">Jamaah</h5>
                 </div>
                 <div>
@@ -76,8 +63,8 @@
 
         <div class=" bg-white border border-gray-200 rounded-lg shadow flex flex-col w-full">
             <div class="border-b-2 py-6 px-10">
-                <h5 class="text-xl">Total Berangkat Ke Bulan</h5>
-                <h3 class="text-2xl font-bold">10.000</h3>
+                <h5 class="text-xl">Total Berangkat per tahun ini</h5>
+                <h3 class="text-2xl font-bold">{{ number_format($bar_month['total']) }}</h3>
                 <h5 class="text-xl">Jamaah</h5>
             </div>
             <div>
@@ -110,27 +97,75 @@
             </div>
 
             <div class="grid md:grid-cols-3 xl:grid-cols-4 gap-6">
-                @for ($i = 0; $i < 8; $i++)
-                    <div
-                        class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
-                        <div class="py-6 px-6 flex flex-col justify-center items-center text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-14 h-14">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-                            </svg>
+                {{-- <!-- @for ($i = 0; $i < 8; $i++)
+--> --}}
+                <div
+                    class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
+                    <div class="py-6 px-6 flex flex-col justify-center items-center text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-14 h-14">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
 
-                            <h3 class="text-2xl font-semibold">Endanged Species</h3>
-                            <p class="text-lg">
-                                The Bengal tiger is a population of the Panthera tigris tigris subspecies. It ranks
-                                among
-                                the
-                                biggest wild cats alive today. It is considered to belong to the world's charismatic
-                                megafauna.
-                            </p>
-                        </div>
+                        <h3 class="text-2xl font-semibold">Terpercaya</h3>
+                        <p class="text-lg">
+                            Agen perjalanan terpercaya dalam menyediakan paket umroh dengan pelayanan terbaik dan harga
+                            terjangkau
+                        </p>
                     </div>
-                @endfor
+                </div>
+                <div
+                    class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
+                    <div class="py-6 px-6 flex flex-col justify-center items-center text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-14 h-14">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+
+                        <h3 class="text-2xl font-semibold">Sesuai Syariat Islam</h3>
+                        <p class="text-lg">
+                            Semua kegiatan yang dilakukan mulai dari Manasik hingga Ibadah Umrah atau Haji InsyaAllah
+                            sesuai Al-Quran dan As-sunnah
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
+                    <div class="py-6 px-6 flex flex-col justify-center items-center text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-14 h-14">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+
+                        <h3 class="text-2xl font-semibold">Pembimbing Travel yang Berpengalaman</h3>
+                        <p class="text-lg">
+                            InsyaAllah akan dibimbing dengan Pembimbing sesuai Sunnah yang amanah, berkompeten dan
+                            berpengalaman di bidangnya selama bertahun-tahun
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
+                    <div class="py-6 px-6 flex flex-col justify-center items-center text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-14 h-14">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+
+                        <h3 class="text-2xl font-semibold">Fasilitas Nyaman dan Baik</h3>
+                        <p class="text-lg">
+                            Menggunakan Fasilitas yang terbaik untuk para Jamaah kami : penerbangan berstandar IATA,
+                            Transportasi BUS Full AC & Nyaman, Hotel yang dekat dengan Masjidil Haram &
+                            Masjid Nabawi
+                        </p>
+                    </div>
+                </div>
+                {{-- <!--
+@endfor --> --}}
             </div>
         </div>
     </section>
@@ -147,99 +182,18 @@
             </div>
 
             <div id="gallery-owl" class="owl-carousel owl-theme h-full">
-                <div class="item  h-full">
-                    <img src="https://images.pexels.com/photos/18274181/pexels-photo-18274181/free-photo-of-crowd-around-kaaba-in-mecca-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        class="img-responsive object-cover w-[400px] h-[500px]">
-                </div>
 
-                <div class="item">
-                    <img src="https://images.pexels.com/photos/20184065/pexels-photo-20184065/free-photo-of-great-mosque-in-mecca.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        class="img-responsive object-cover w-[400px] h-[500px]">
-                </div>
-
-                <div class="item">
-                    <img src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        class="img-responsive object-cover w-[400px] h-[500px]">
-                </div>
-
-                <div class="item">
-                    <img src="https://storage.googleapis.com/muslimpergi/uploads/slide/pict/415/1.AWAL_SEPTEMBER_EKSEKUTIF.png"
-                        class="img-responsive object-cover w-[400px] h-[500px]">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- mengapa memilih kami --}}
-
-    <section class="py-14 bg-[#F9F9F9]">
-        <div class="max-w-screen-xl mx-auto flex flex-col gap-6 px-3">
-            <div class="flex flex-col gap-2">
-                <h1 class="text-5xl font-bold">Mengapa Memilih Kami ?</h1>
-                <p class="text-xl font-semibold max-w-xl">
-                    Membantu saudara muslim sebanyak-banyaknya untuk bisa berangkat Umrah & Haji dengan mudah dan
-                    nyaman.
-                </p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row gap-6">
-                @for ($i = 0; $i < 3; $i++)
-                    <div
-                        class=" bg-white border border-gray-200 rounded-lg shadow w-full hover:bg-[#318448] hover:text-white transition ease-in-out duration-300">
-                        <div class="py-6 px-6">
-                            <div class="flex items-center mb-4">
-                                <img class="w-10 h-10 me-4 rounded-full"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSasIydkiFM8Nmx5KTx2iAshCaV_YINqfc5TBrUhN9KA&s"
-                                    alt="">
-                                <div class="font-medium dark:text-white">
-                                    <p>
-                                        Nino
-                                        <time datetime="2014-08-16 19:00"
-                                            class="block text-sm text-gray-500 dark:text-gray-400">@nino</time>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                                <svg class="w-4 h-4 text-gray-300 dark:text-gray-500" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                    <path
-                                        d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                </svg>
-                            </div>
-
-                            <p class="text-lg">
-                                The Bengal tiger is a population of the Panthera tigris tigris subspecies. It ranks
-                                among
-                                the
-                                biggest wild cats alive today. It is considered to belong to the world's charismatic
-                                megafauna.
-                            </p>
-                        </div>
+                @foreach ($galeris as $galeri)
+                    <div class="item  h-full">
+                        <img src="{{ asset('storage/' . $galeri->image_photo) }}"
+                            class="img-responsive object-cover w-[400px] h-[500px]">
                     </div>
-                @endfor
+                @endforeach
+
             </div>
         </div>
     </section>
+
 
     {{-- Artikel --}}
 
@@ -248,30 +202,30 @@
             <div class="flex flex-col gap-2">
                 <h1 class="text-5xl font-bold">Artikel</h1>
                 <p class="text-xl font-semibold max-w-xl">
-                    Bacalah karena iqro adalah baca
+
                 </p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-6">
-                @for ($i = 0; $i < 3; $i++)
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                @foreach ($artikels as $artikel)
                     <div
                         class=" bg-white border border-gray-200 rounded-lg shadow w-full transition ease-in-out duration-300">
-                        <a href="#">
+                        <a href="{{ $artikel->article_link }}" target="_blank">
                             <img class="rounded-t-lg object-cover w-full h-[220px]"
-                                src="https://images.pexels.com/photos/5004002/pexels-photo-5004002.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                alt="" />
+                                src="{{ asset('storage/' . $artikel->image_article) }}" alt="" />
                         </a>
                         <div class="py-6 px-6">
 
                             <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                    Noteworthy technology acquisitions 2021</h5>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                    {{ $artikel->name }}
+                                </h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest
-                                enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                            <p class="mb-3 font-normal text-gray-700">
+                                {{ $artikel->description }}
                             </p>
-                            <a href="#"
-                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#F7CE46] hover:bg-[#f7a746]  rounded-md  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <a href="{{ $artikel->article_link }}" target="_blank"
+                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#F7CE46] hover:bg-[#f7a746]  rounded-md  focus:ring-4 focus:outline-none focus:ring-blue-300">
                                 Read more
                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -282,7 +236,7 @@
 
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>
@@ -335,14 +289,10 @@
                 });
 
                 const totalCustomersdata = {
-                    labels: [
-                        'Usia Balita',
-                        'Usia Remaja dan Dewasa',
-                        'Usia Lanjut'
-                    ],
+                    labels: {!! json_encode($pie_semua['labels']) !!},
                     datasets: [{
                         label: 'My First Dataset',
-                        data: [10, 20, 70],
+                        data: {!! json_encode($pie_semua['data']) !!},
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
@@ -366,14 +316,10 @@
 
 
                 const totalManCustomersdata = {
-                    labels: [
-                        'Usia Balita',
-                        'Usia Remaja dan Dewasa',
-                        'Usia Lanjut'
-                    ],
+                    labels: {!! json_encode($pie_laki['labels']) !!},
                     datasets: [{
                         label: 'My First Dataset',
-                        data: [10, 60, 30],
+                        data: {!! json_encode($pie_laki['data']) !!},
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
@@ -396,14 +342,10 @@
                 });
 
                 const totalWomanCustomersdata = {
-                    labels: [
-                        'Usia Balita',
-                        'Usia Remaja dan Dewasa',
-                        'Usia Lanjut'
-                    ],
+                    labels: {!! json_encode($pie_perempuan['labels']) !!},
                     datasets: [{
                         label: 'My First Dataset',
-                        data: [10, 10, 80],
+                        data: {!! json_encode($pie_perempuan['data']) !!},
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
@@ -425,79 +367,10 @@
                     }
                 });
 
-                const labelsCustomerPerYearData = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'];
+                const labelsCustomerPerYearData = {!! json_encode($bar_month['labels']) !!};
                 const totalCustomerPerYearData = {
                     labels: labelsCustomerPerYearData,
-                    datasets: [{
-                            label: 'Usia Balita',
-                            data: [65, 59, 80, 81, 56, 55, 40],
-                            // backgroundColor: [
-                            //     'rgba(255, 99, 132, 0.2)',
-                            //     'rgba(255, 159, 64, 0.2)',
-                            //     'rgba(255, 205, 86, 0.2)',
-                            //     'rgba(75, 192, 192, 0.2)',
-                            //     'rgba(54, 162, 235, 0.2)',
-                            //     'rgba(153, 102, 255, 0.2)',
-                            //     'rgba(201, 203, 207, 0.2)'
-                            // ],
-                            // borderColor: [
-                            //     'rgb(255, 99, 132)',
-                            //     'rgb(255, 159, 64)',
-                            //     'rgb(255, 205, 86)',
-                            //     'rgb(75, 192, 192)',
-                            //     'rgb(54, 162, 235)',
-                            //     'rgb(153, 102, 255)',
-                            //     'rgb(201, 203, 207)'
-                            // ],
-                            // borderWidth: 1
-                        },
-                        {
-                            label: 'Remaja & Dewasa',
-                            data: [10, 20, 60, 45, 62, 13, 20],
-                            // backgroundColor: [
-                            //     'rgba(255, 99, 132, 0.2)',
-                            //     'rgba(255, 159, 64, 0.2)',
-                            //     'rgba(255, 205, 86, 0.2)',
-                            //     'rgba(75, 192, 192, 0.2)',
-                            //     'rgba(54, 162, 235, 0.2)',
-                            //     'rgba(153, 102, 255, 0.2)',
-                            //     'rgba(201, 203, 207, 0.2)'
-                            // ],
-                            // borderColor: [
-                            //     'rgb(255, 99, 132)',
-                            //     'rgb(255, 159, 64)',
-                            //     'rgb(255, 205, 86)',
-                            //     'rgb(75, 192, 192)',
-                            //     'rgb(54, 162, 235)',
-                            //     'rgb(153, 102, 255)',
-                            //     'rgb(201, 203, 207)'
-                            // ],
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Usia Lanjut',
-                            data: [67, 73, 35, 87, 43, 64, 76],
-                            // backgroundColor: [
-                            //     'rgba(255, 99, 132, 0.2)',
-                            //     'rgba(255, 159, 64, 0.2)',
-                            //     'rgba(255, 205, 86, 0.2)',
-                            //     'rgba(75, 192, 192, 0.2)',
-                            //     'rgba(54, 162, 235, 0.2)',
-                            //     'rgba(153, 102, 255, 0.2)',
-                            //     'rgba(201, 203, 207, 0.2)'
-                            // ],
-                            // borderColor: [
-                            //     'rgb(255, 99, 132)',
-                            //     'rgb(255, 159, 64)',
-                            //     'rgb(255, 205, 86)',
-                            //     'rgb(75, 192, 192)',
-                            //     'rgb(54, 162, 235)',
-                            //     'rgb(153, 102, 255)',
-                            //     'rgb(201, 203, 207)'
-                            // ],
-                            borderWidth: 1
-                        },
-                    ]
+                    datasets: {!! json_encode($bar_month['datasets']) !!}
                 };
 
                 new Chart($('#totalCustomerPerYear'), {

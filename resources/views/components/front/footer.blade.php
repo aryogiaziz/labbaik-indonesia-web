@@ -1,8 +1,8 @@
-<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+<footer class="bg-white rounded-lg shadow m-4">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex flex-col">
         <div class="sm:flex sm:items-center sm:justify-center mb-6">
             <ul
-                class="flex flex-wrap justify-center items-center font-semibold text-gray-500 sm:mb-0 dark:text-gray-400 gap-3 xl:gap-16">
+                class="flex flex-wrap justify-center items-center font-semibold text-gray-500 sm:mb-0 gap-3 xl:gap-16">
                 <li>
                     <a href="#" class="hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60"
@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">
+                    <a href="https://www.facebook.com/labbaikindonesiabdg" class="hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60"
                             viewBox="0 0 24 24">
                             <path
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">
+                    <a href="https://www.instagram.com/labbaikindonesia/" class="hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60"
                             viewBox="0 0 24 24">
                             <path
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">
+                    <a href="https://www.tiktok.com/@labbaikindonesia?is_from_webapp=1&sender_device=pc" class="hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60"
                             viewBox="0 0 24 24">
                             <path
@@ -46,7 +46,7 @@
             </ul>
         </div>
 
-        <div class="sm:flex sm:items-center sm:justify-center">
+        <!-- <div class="sm:flex sm:items-center sm:justify-center">
             <ul
                 class="flex flex-wrap justify-center items-center mb-6 font-semibold text-gray-500 sm:mb-0 gap-5 xl:gap-12">
                 <li>
@@ -62,9 +62,9 @@
                     <a href="#" class="hover:underline">Paket</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
 
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 w-full" />
-        <span class="block text-gray-500 sm:text-center dark:text-gray-400">© 2024 All Rights Reserved.</span>
+        <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 w-full" />
+        <span class="block text-gray-500 sm:text-center">© 2024 All Rights Reserved.</span>
     </div>
 </footer>
