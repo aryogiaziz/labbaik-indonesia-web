@@ -69,33 +69,6 @@
         </table>
     </div>
 
-    <x-modal wire:model.live="modalCreate">
-        <x-card title="Create">
-            <div class=" flex flex-col gap-3">
-                <div>
-                    <x-input wire:model="name" label="Nama" placeholder="Nama" />
-                </div>
-                <div>
-                    <x-input wire:model="description" label="Deskripsi" placeholder="Deskripsi" />
-                </div>
-
-                <div>
-                    <x-input-label for="image_brochure" :value="__('Image to Upload')" />
-                    <x-text-input wire:model="image_brochure" id="image_brochure" name="image_brochure" type="file"
-                        class="mt-1 block w-full" />
-                    <x-input-error class="mt-2" :messages="$errors->get('image_brochure')" />
-                </div>
-            </div>
-
-            <x-slot name="footer">
-                <div class="flex justify-end gap-x-4">
-                    <x-button flat label="Cancel" x-on:click="close" />
-                    <x-button positive label="Submit" wire:click="store" />
-                </div>
-            </x-slot>
-        </x-card>
-    </x-modal>
-
     {{-- Create --}}
     <x-modal wire:model.live="modalCreate">
         <x-card title="Create">
